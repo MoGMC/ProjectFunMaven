@@ -6,23 +6,21 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import nomarthehero.projectfun.Hashtag;
-import nomarthehero.projectfun.RainbowEffect;
 import nomarthehero.projectfun.ProjectFun;
 
 public class ChatListener implements Listener {
 
-	ProjectFun plugin = ProjectFun.getPlugin();
-	Hashtag hashtag = plugin.getHashtag();
-	RainbowEffect REffect = new RainbowEffect();
+	// ProjectFun plugin = ProjectFun.getPlugin();
+	Hashtag hashtag = ProjectFun.getPlugin().getHashtag();
+
+	// RainbowEffect REffect = new RainbowEffect();
 
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
 
 		if (event.getPlayer().hasPermission("projectfun.hashtags.use")) {
 
-			String message = event.getMessage();
-
-			event.setMessage(replaceHashtags(message));
+			event.setMessage(replaceHashtags(event.getMessage()));
 
 		}
 
@@ -33,40 +31,25 @@ public class ChatListener implements Listener {
 
 		if (event.getPlayer().hasPermission("projectfun.hashtags.use")) {
 
-			String message = event.getMessage();
-
-			event.setMessage(replaceHashtags(message));
+			event.setMessage(replaceHashtags(event.getMessage()));
 
 		}
 
 	}
 
+	// TODO: merge hashtags into ChatListener for more efficiency
 	public String replaceHashtags(String message) {
 
-		String[] split = message.split(" ");
+		String finalMsg = message;
 
-		String regularWord;
+		for (String tag : hashtag.getList()) {
 
-		for (int i = 0; i < split.length; i++) {
-
-			regularWord = split[i].toLowerCase();
-
-			if (hashtag.containsHashtag(regularWord)) {
-
-				split[i] = hashtag.getHashtag(regularWord);
-
-			}
+			finalMsg = message.replaceAll(tag, hashtag.getHashtag(tag));
 
 		}
 
-		String finalMessage = "";
+		return finalMsg;
 
-		for (String word : split) {
-			finalMessage += word + " ";
-
-		}
-
-		return finalMessage;
 	}
 
 }

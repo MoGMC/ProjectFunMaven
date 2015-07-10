@@ -5,58 +5,38 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class BaseCommand implements CommandExecutor {
+public abstract class BaseCommand implements CommandExecutor {
 
-	/*
-	 * COPY THIS WHOLE CLASS INTO A NEW CLASS FOR A NEW COMMAND
-	 * 
-	 * Replace "String command = null" with the command, for example
-	 * "String command = slap" (make sure it's lowercase) Replace
-	 * "String permission = null" with the permission you set it to in the
-	 * plugin.yml, for example "String permission = projectfun.command.slap"
-	 * (lowercase)
-	 * 
-	 * Make sure to register the command in ProjectFun
-	 */
+	// Make sure to register the command in ProjectFun
 
-	private String command = null;
+	private final String COMMAND_NAME;
 
-	private String permission = null;
+	public BaseCommand(String commandName) {
+		COMMAND_NAME = commandName;
 
-	public boolean onCommand(CommandSender sender, Command cmd, String label,
-			String[] args) {
+	}
 
-		if (cmd.getName().equalsIgnoreCase(getCommand())) {
+	public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
 
-			if (sender instanceof Player) {
+		if (cmd.getName().equalsIgnoreCase(COMMAND_NAME)) {
 
-				Player player = (Player) sender;
-
-				if (!player.hasPermission(getPerm())) {
-					return false;
-				}
-
-				else {
-
-					// ==== Do stuff =====
-
-				}
+			if (!(sender instanceof Player)) {
+				sender.sendMessage("Only a player can use this command.");
+				return false;
 
 			}
 
-			else
-				return true;
+			return execute(sender, args);
+
 		}
 
-		return true;
+		return false;
 	}
 
-	public String getCommand() {
-		return command;
-	}
+	public abstract boolean execute(CommandSender sender, String[] args);
 
-	private String getPerm() {
-		return permission;
+	public String getName() {
+		return COMMAND_NAME;
 	}
 
 }

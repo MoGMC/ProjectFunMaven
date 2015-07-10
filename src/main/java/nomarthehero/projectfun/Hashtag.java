@@ -1,6 +1,7 @@
 package nomarthehero.projectfun;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Hashtag {
 
@@ -24,12 +25,12 @@ public class Hashtag {
 
 	}
 
-	public HashMap<String, String> getList() {
-		return words;
+	public Set<String> getList() {
+		return words.keySet();
 	}
 
 	public String getHashtag(String hashtag) {
-		return getList().get(hashtag);
+		return words.get(hashtag);
 	}
 
 	public boolean containsHashtag(String hashtag) {
@@ -40,7 +41,7 @@ public class Hashtag {
 	}
 
 	private void add(String hashtag, String replacement) {
-		words.put(hashtag, replacement);
+		words.put("(?i)" + hashtag, replacement);
 	}
 
 }

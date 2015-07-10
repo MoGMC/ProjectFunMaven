@@ -16,8 +16,6 @@ public class ProjectFun extends JavaPlugin implements Listener {
 	public HashMap<String, Long> hugCool = new HashMap<String, Long>();
 	public HashMap<String, Long> slapCool = new HashMap<String, Long>();
 	public HashMap<String, Long> rageCool = new HashMap<String, Long>();
-	public HashMap<String, Long> lickCool = new HashMap<String, Long>();
-	public HashMap<String, Long> rektCool = new HashMap<String, Long>();
 
 	public Set<String> didRage = new HashSet<String>();
 	public Set<String> hasRainbow = new HashSet<String>();
@@ -28,10 +26,15 @@ public class ProjectFun extends JavaPlugin implements Listener {
 	 */
 
 	private static ProjectFun plugin;
+	private static int cooldown;
 
 	Hashtag hashtag = new Hashtag();
 
 	public void onEnable() {
+
+		// changed seconds to mls
+		cooldown = this.getConfig().getInt("cooldown") * 1000;
+
 		plugin = this;
 
 		registerAllCommands();
@@ -39,8 +42,7 @@ public class ProjectFun extends JavaPlugin implements Listener {
 		hashtag.registerHashtags();
 
 		getServer().getPluginManager().registerEvents(new ChatListener(), this);
-		getServer().getPluginManager()
-				.registerEvents(new RainbowEffect(), this);
+		getServer().getPluginManager().registerEvents(new RainbowEffect(), this);
 
 		saveDefaultConfig();
 
@@ -52,21 +54,28 @@ public class ProjectFun extends JavaPlugin implements Listener {
 
 	public void registerAllCommands() {
 
-		plugin.getCommand("slap").setExecutor(new SlapCommand());
-		plugin.getCommand("hug").setExecutor(new HugCommand());
-		plugin.getCommand("lick").setExecutor(new LickCommand());
-		plugin.getCommand("rainbow").setExecutor(new RainbowCommand());
-		plugin.getCommand("rek").setExecutor(new RektCommand());
-		plugin.getCommand("fun").setExecutor(new FunCommand());
-		plugin.getCommand("hashtag").setExecutor(new HashtagCommand());
+		this.getCommand("slap").setExecutor(new SlapCommand());
+		this.getCommand("hug").setExecutor(new HugCommand());
+		this.getCommand("lick").setExecutor(new LickCommand());
+		this.getCommand("rainbow").setExecutor(new RainbowCommand());
+		this.getCommand("rek").setExecutor(new RektCommand());
+		this.getCommand("fun").setExecutor(new FunCommand());
+		this.getCommand("hashtag").setExecutor(new HashtagCommand());
 
-	}
-
-	public static ProjectFun getPlugin() {
-		return plugin;
 	}
 
 	public Hashtag getHashtag() {
 		return hashtag;
 	}
+
+	public static int getCooldown() {
+		return cooldown;
+
+	}
+
+	public static ProjectFun getPlugin() {
+		return plugin;
+
+	}
+
 }
