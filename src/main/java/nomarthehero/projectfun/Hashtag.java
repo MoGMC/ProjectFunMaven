@@ -50,6 +50,7 @@ public class Hashtag {
 				new FancyMessage("( ͡° ͜ʖ ͡°)")
 					.formattedTooltip(new FancyMessage("#lenny"))
 					.toJSONString());
+		add("sauron", "loser");
 		
 	}
 	
