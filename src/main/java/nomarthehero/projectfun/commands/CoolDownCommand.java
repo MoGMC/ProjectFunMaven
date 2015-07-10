@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 public abstract class CoolDownCommand extends BaseCommand {
 
-	private static HashMap<String, Long> cooldown;
+	private HashMap<String, Long> cooldown;
 	private int cooldownTime;
 	private String cooldownMessage// , allMessage, message;
 	;
@@ -27,16 +27,13 @@ public abstract class CoolDownCommand extends BaseCommand {
 	public boolean execute(CommandSender sender, String[] args) {
 		if (args.length == 0) {
 			sender.sendMessage(ChatColor.RED
-					+ "Not enough arguments!" + ChatColor.DARK_AQUA + "/" + getName() + " <player>");
+					+ "Not enough arguments! " + ChatColor.DARK_AQUA + "/" + getName() + " <player>");
 			return true;
 
 		}
 
 		if (cooldown.containsKey(sender.getName())) {
-
-			long secondsLeft = cooldown.get(sender.getName() + cooldownTime) - System.currentTimeMillis();
-
-			if (secondsLeft > 0) {
+			if (cooldown.get(sender.getName()) - System.currentTimeMillis() < cooldownTime) {
 				sender.sendMessage(cooldownMessage);
 				return true;
 

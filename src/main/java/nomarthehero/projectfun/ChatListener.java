@@ -1,5 +1,6 @@
 package nomarthehero.projectfun;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -43,8 +44,8 @@ public class ChatListener implements Listener {
 		String finalMsg = message;
 
 		for (String tag : hashtag.getList()) {
-
-			finalMsg = message.replaceAll(tag, hashtag.getHashtag(tag));
+			Bukkit.getLogger().info(tag);
+			finalMsg = finalMsg.replaceAll(tag, hashtag.getHashtag(tag));
 
 		}
 
