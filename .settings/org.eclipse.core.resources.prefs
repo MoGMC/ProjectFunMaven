@@ -1,9 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/nomarthehero/projectfun/ChatListener.java=UTF-8
-encoding//src/main/java/nomarthehero/projectfun/Hashtag.java=UTF-8
 encoding//src/main/java/nomarthehero/projectfun/ProjectFun.java=UTF-8
 encoding//src/main/java/nomarthehero/projectfun/commands/CoolDownCommand.java=UTF-8
 encoding//src/main/java/nomarthehero/projectfun/commands/FunCommand.java=UTF-8
 encoding//src/main/java/nomarthehero/projectfun/commands/HashtagCommand.java=UTF-8
 encoding//src/main/java/nomarthehero/projectfun/commands/HugCommand.java=UTF-8
-encoding/<project>=UTF-8

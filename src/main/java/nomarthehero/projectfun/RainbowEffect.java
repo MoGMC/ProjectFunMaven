@@ -29,6 +29,7 @@ public class RainbowEffect implements Listener {
 			for (int i = 1; i < words.length; i++) {
 				int y = rand.nextInt(15);
 				newMessage = newMessage + getColor(y) + words[i];
+
 			}
 
 			event.setMessage(newMessage);

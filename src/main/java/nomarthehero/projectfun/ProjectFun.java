@@ -8,7 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import nomarthehero.projectfun.ChatListener;
 import nomarthehero.projectfun.RainbowEffect;
-import nomarthehero.projectfun.Hashtag;
 import nomarthehero.projectfun.commands.*;
 
 public class ProjectFun extends JavaPlugin implements Listener {
@@ -28,8 +27,6 @@ public class ProjectFun extends JavaPlugin implements Listener {
 	private static ProjectFun plugin;
 	private static int cooldown;
 
-	Hashtag hashtag = new Hashtag();
-
 	public void onEnable() {
 
 		// changed seconds to mls
@@ -38,8 +35,6 @@ public class ProjectFun extends JavaPlugin implements Listener {
 		plugin = this;
 
 		registerAllCommands();
-
-		hashtag.registerHashtags();
 
 		getServer().getPluginManager().registerEvents(new ChatListener(), this);
 		getServer().getPluginManager().registerEvents(new RainbowEffect(), this);
@@ -62,10 +57,6 @@ public class ProjectFun extends JavaPlugin implements Listener {
 		this.getCommand("fun").setExecutor(new FunCommand());
 		this.getCommand("hashtag").setExecutor(new HashtagCommand());
 
-	}
-
-	public Hashtag getHashtag() {
-		return hashtag;
 	}
 
 	public static int getCooldown() {

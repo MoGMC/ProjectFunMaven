@@ -1,39 +1,39 @@
 name: ProjectFun
 main: nomarthehero.projectfun.ProjectFun
-version: 1.0
+version: 0,3
 commands:
   slap:
     description: Slap somebody
     usage: /slap <player>
     permission: projectfun.slap
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!
   hug:
     description: Hug somebody
     usage: /hug <player>
     permission: projectfun.hug
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!
   lick:
     description: Lick somebody
     usage: /lick <player>
     permission: projectfun.lick
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!
   rek:
     description: Rek somebody like the Call of Duty kids would
     usage: /rek <player>
     permission: projectfun.rekt
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!
   fun:
     description: Base command
     usage: /fun
     permission: projectfun.fun
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!
   hashtag:
     description: List of hashtags
     usage: /hashtag
     permission: projectfun.hashtags.use
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!
   rainbow:
     description: Toggle rainbow mode
     usage: /rainbow
     permission: projectfun.rainbow
-    permission-message: Missing permission.
+    permission-message: You don't have permission to do that!

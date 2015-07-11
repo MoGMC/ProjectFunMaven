@@ -17,7 +17,7 @@ public class FunCommand extends BaseCommand {
 	public boolean execute(CommandSender sender, String[] args) {
 		// Player player = (Player) sender;
 
-		sender.sendMessage(ChatColor.GOLD + "ProjectFun by Nomar and Ploffie.");
+		sender.sendMessage(ChatColor.GOLD + "ProjectFun by Nomar and Ploffie. (ver 0,3)");
 
 		if (sender.hasPermission("projectfun.fun")) {
 			sender.sendMessage(ChatColor.AQUA + "/fun" + ChatColor.GOLD + ": Base command.");

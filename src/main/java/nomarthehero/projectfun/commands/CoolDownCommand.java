@@ -5,13 +5,13 @@ import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public abstract class CoolDownCommand extends BaseCommand {
 
 	private HashMap<String, Long> cooldown;
 	private int cooldownTime;
-	private String cooldownMessage// , allMessage, message;
-	;
+	private String cooldownMessage;
 
 	public CoolDownCommand(String commandName, int cooldownTime) {
 		super(commandName);
@@ -25,15 +25,9 @@ public abstract class CoolDownCommand extends BaseCommand {
 
 	@Override
 	public boolean execute(CommandSender sender, String[] args) {
-		if (args.length == 0) {
-			sender.sendMessage(ChatColor.RED
-					+ "Not enough arguments! " + ChatColor.DARK_AQUA + "/" + getName() + " <player>");
-			return true;
-
-		}
 
 		if (cooldown.containsKey(sender.getName())) {
-			if (cooldown.get(sender.getName()) - System.currentTimeMillis() < cooldownTime) {
+			if (System.currentTimeMillis() - cooldown.get(sender.getName()) < cooldownTime) {
 				sender.sendMessage(cooldownMessage);
 				return true;
 
@@ -41,12 +35,17 @@ public abstract class CoolDownCommand extends BaseCommand {
 
 		}
 
-		String name = sender.getName();
+		if (args.length == 0) {
+			sender.sendMessage(ChatColor.RED
+					+ "Not enough arguments! " + ChatColor.DARK_AQUA + "/" + getName() + " <player>");
+			return true;
+
+		}
 
 		if (args[0].equalsIgnoreCase("all")) {
 
-			messageAll(name);
-			cooldown.put(name, System.currentTimeMillis());
+			messageAll(((Player) sender).getDisplayName());
+			cooldown.put(sender.getName(), System.currentTimeMillis());
 
 			return true;
 
@@ -59,8 +58,8 @@ public abstract class CoolDownCommand extends BaseCommand {
 
 		}
 
-		message(name, args[0]);
-		cooldown.put(name, System.currentTimeMillis());
+		message(((Player) sender).getDisplayName(), args[0]);
+		cooldown.put(sender.getName(), System.currentTimeMillis());
 
 		return true;
 	}

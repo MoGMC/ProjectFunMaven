@@ -1,20 +1,25 @@
 package nomarthehero.projectfun;
 
-import org.bukkit.Bukkit;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import nomarthehero.projectfun.Hashtag;
-import nomarthehero.projectfun.ProjectFun;
-
 public class ChatListener implements Listener {
 
-	// ProjectFun plugin = ProjectFun.getPlugin();
-	Hashtag hashtag = ProjectFun.getPlugin().getHashtag();
+	// have a seperate hashtagList to allow things like "tableflip2"
+	private HashMap<String, String> hashtags = new HashMap<String, String>();
+	private ArrayList<String> hashtagList = new ArrayList<String>();
 
 	// RainbowEffect REffect = new RainbowEffect();
+
+	public ChatListener() {
+		registerHashtags();
+
+	}
 
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
@@ -43,13 +48,34 @@ public class ChatListener implements Listener {
 
 		String finalMsg = message;
 
-		for (String tag : hashtag.getList()) {
-			Bukkit.getLogger().info(tag);
-			finalMsg = finalMsg.replaceAll(tag, hashtag.getHashtag(tag));
+		for (String tag : hashtagList) {
+			finalMsg = finalMsg.replaceAll(tag, hashtags.get(tag));
 
 		}
 
 		return finalMsg;
+
+	}
+
+	public void registerHashtags() {
+
+		// PUT NEW WORDS WITH REPLACEMENTS HERE
+		// addHashtag("#hashtag", "emoji");
+		addHashtag("#donger", "ヽ༼°ل͜°༽ﾉ");
+		addHashtag("#tableflip2", "(╯°Д°）╯︵ /(.□ . \\)");
+		addHashtag("#tableflip", "(╯°□°)╯︵ ┻━┻");
+		addHashtag("#molly", "༼ つ ◕_◕ ༽つ");
+		addHashtag("#happy", "☆*｡. o(≧▽≦)o .｡*☆");
+		addHashtag("#facepalm", "(－‸ლ)");
+		addHashtag("#rage", "ლ(ಠ益ಠლ)");
+		addHashtag("#cry", "(╯︵╰,)");
+		addHashtag("#lenny", "( ͡° ͜ʖ ͡°)");
+
+	}
+
+	private void addHashtag(String hashtag, String replacement) {
+		hashtags.put("(?i)" + hashtag, replacement);
+		hashtagList.add("(?i)" + hashtag);
 
 	}
 
