@@ -12,7 +12,7 @@ public class HugCommand extends CoolDownCommand {
 		super("hug", ProjectFun.getCooldown());
 		PF = ProjectFun.getPlugin();
 
-		setCooldownMessage(ChatColor.RED + "You can only hug one player every 100 seconds.");
+		setCooldownMessage(ChatColor.RED + "You can only hug one player every 50 seconds.");
 
 	}
 
