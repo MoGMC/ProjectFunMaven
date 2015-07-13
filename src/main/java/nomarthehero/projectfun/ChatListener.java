@@ -70,6 +70,8 @@ public class ChatListener implements Listener {
 		addHashtag("#rage", "ლ(ಠ益ಠლ)");
 		addHashtag("#cry", "(╯︵╰,)");
 		addHashtag("#lenny", "( ͡° ͜ʖ ͡°)");
+		addHashtag("#shrug", "¯\\_(ツ)_/¯");
+		addHashtag("#derp", "ヽ(◉◡◔)ﾉ");
 
 	}
 

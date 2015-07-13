@@ -22,7 +22,9 @@ public class HashtagCommand extends BaseCommand {
 				+ ChatColor.AQUA + " #happy: ☆*｡. o(≧▽≦)o .｡*☆,"
 				+ ChatColor.BLUE + " #rage: ლ(ಠ益ಠლ),"
 				+ ChatColor.AQUA + " #cry: (╯︵╰,),"
-				+ ChatColor.BLUE + " #lenny: ( ͡° ͜ʖ ͡°).");
+				+ ChatColor.BLUE + " #lenny: ( ͡° ͜ʖ ͡°)"
+				+ ChatColor.AQUA + " #derp: ヽ(◉◡◔)ﾉ"
+				+ ChatColor.BLUE + " #shrug: ¯\\_(ツ)_/¯");
 
 		return true;
 
