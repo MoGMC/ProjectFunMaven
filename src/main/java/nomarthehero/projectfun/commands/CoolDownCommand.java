@@ -23,6 +23,7 @@ public abstract class CoolDownCommand extends BaseCommand {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean execute(CommandSender sender, String[] args) {
 

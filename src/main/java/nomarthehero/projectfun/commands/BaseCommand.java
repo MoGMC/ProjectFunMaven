@@ -18,8 +18,6 @@ public abstract class BaseCommand implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
 
-		if (cmd.getName().equalsIgnoreCase(COMMAND_NAME)) {
-
 			if (!(sender instanceof Player)) {
 				sender.sendMessage("Only a player can use this command.");
 				return false;
@@ -27,10 +25,6 @@ public abstract class BaseCommand implements CommandExecutor {
 			}
 
 			return execute(sender, args);
-
-		}
-
-		return false;
 	}
 
 	public abstract boolean execute(CommandSender sender, String[] args);

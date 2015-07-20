@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import nomarthehero.projectfun.ChatListener;
 import nomarthehero.projectfun.RainbowEffect;
 import nomarthehero.projectfun.commands.*;
 
@@ -18,11 +17,6 @@ public class ProjectFun extends JavaPlugin implements Listener {
 
 	public Set<String> didRage = new HashSet<String>();
 	public Set<String> hasRainbow = new HashSet<String>();
-
-	/*
-	 * TODO: hashtags command, list of hashtags if statement on funcommand using
-	 * permissions seperate class for all messages, perhaps config?
-	 */
 
 	private static ProjectFun plugin;
 	private static int cooldown;
@@ -37,7 +31,8 @@ public class ProjectFun extends JavaPlugin implements Listener {
 		registerAllCommands();
 
 		getServer().getPluginManager().registerEvents(new ChatListener(), this);
-		getServer().getPluginManager().registerEvents(new RainbowEffect(), this);
+		getServer().getPluginManager()
+				.registerEvents(new RainbowEffect(), this);
 
 		saveDefaultConfig();
 
