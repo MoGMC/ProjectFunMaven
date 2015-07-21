@@ -31,7 +31,7 @@ public class HugCommand extends CoolDownCommand {
 	public void message(String playerName, Player target) {
 		Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + playerName
 				+ ChatColor.RED + " hugged "
-				+ ChatColor.LIGHT_PURPLE + target
+				+ ChatColor.LIGHT_PURPLE + target.getDisplayName()
 				+ ChatColor.DARK_RED + " ♥");
 
 	}

@@ -37,7 +37,7 @@ public class SlapCommand extends CoolDownCommand {
 				+ ChatColor.DARK_PURPLE + "P"
 				+ ChatColor.AQUA + "E" + ChatColor.BLUE
 				+ "D " + ChatColor.LIGHT_PURPLE
-				+ target + ChatColor.DARK_RED
+				+ target.getDisplayName() + ChatColor.DARK_RED
 				+ "!");
 
 	}
