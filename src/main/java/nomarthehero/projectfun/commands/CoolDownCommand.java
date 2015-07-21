@@ -59,7 +59,7 @@ public abstract class CoolDownCommand extends BaseCommand {
 
 		}
 
-		message(((Player) sender).getDisplayName(), args[0]);
+		message(((Player) sender).getDisplayName(), Bukkit.getPlayer(args[0]));
 		cooldown.put(sender.getName(), System.currentTimeMillis());
 
 		return true;
@@ -75,7 +75,7 @@ public abstract class CoolDownCommand extends BaseCommand {
 
 	public abstract void messageAll(String playerName);
 
-	public abstract void message(String playerName, String target);
+	public abstract void message(String playerName, Player target);
 
 	public int getCooldownTime() {
 		return cooldownTime;

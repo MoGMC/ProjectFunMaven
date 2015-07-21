@@ -2,6 +2,8 @@ package nomarthehero.projectfun.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+
 import nomarthehero.projectfun.ProjectFun;
 
 public class LickCommand extends CoolDownCommand {
@@ -27,7 +29,7 @@ public class LickCommand extends CoolDownCommand {
 	}
 
 	@Override
-	public void message(String playerName, String target) {
+	public void message(String playerName, Player target) {
 		Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + playerName
 				+ ChatColor.RED + " L"
 				+ ChatColor.LIGHT_PURPLE + "I"

@@ -2,6 +2,8 @@ package nomarthehero.projectfun.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+
 import nomarthehero.projectfun.ProjectFun;
 
 public class HugCommand extends CoolDownCommand {
@@ -26,7 +28,7 @@ public class HugCommand extends CoolDownCommand {
 	}
 
 	@Override
-	public void message(String playerName, String target) {
+	public void message(String playerName, Player target) {
 		Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + playerName
 				+ ChatColor.RED + " hugged "
 				+ ChatColor.LIGHT_PURPLE + target
