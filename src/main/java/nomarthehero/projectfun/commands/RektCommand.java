@@ -28,7 +28,7 @@ public class RektCommand extends CoolDownCommand {
 	public void message(String playerName, Player target) {
 		Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + playerName
 				+ ChatColor.DARK_RED + " REKT "
-				+ ChatColor.LIGHT_PURPLE + target.getDisplayName()
+				+ ChatColor.LIGHT_PURPLE + target.getDisplayName().toString()
 				+ ChatColor.DARK_RED + "!");
 
 	}

@@ -36,7 +36,7 @@ public class LickCommand extends CoolDownCommand {
 				+ ChatColor.GOLD + "C" + ChatColor.BLUE
 				+ "K" + ChatColor.YELLOW + "E"
 				+ ChatColor.WHITE + "D "
-				+ ChatColor.LIGHT_PURPLE + target.getDisplayName()
+				+ ChatColor.LIGHT_PURPLE + target.getDisplayName().toString()
 				+ ChatColor.DARK_RED + "!");
 
 	}
