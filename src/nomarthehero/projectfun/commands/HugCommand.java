@@ -10,29 +10,29 @@ public class HugCommand extends CoolDownCommand {
 
 	ProjectFun PF;
 
-	public HugCommand() {
-		super("hug", ProjectFun.getCooldown());
-		PF = ProjectFun.getPlugin();
+	public HugCommand () {
+		super ("hug", ProjectFun.getCooldown ());
+		PF = ProjectFun.getPlugin ();
 
-		setCooldownMessage(ChatColor.RED + "You can only hug one player every 50 seconds.");
-
-	}
-
-	@Override
-	public void messageAll(String playerName) {
-		Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + playerName
-				+ ChatColor.RED + " hugged "
-				+ ChatColor.LIGHT_PURPLE + "everyone"
-				+ ChatColor.RED + " ♥");
+		setCooldownMessage (ChatColor.RED + "You can only hug one player every 50 seconds.");
 
 	}
 
 	@Override
-	public void message(String playerName, Player target) {
-		Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + playerName
-				+ ChatColor.RED + " hugged "
-				+ ChatColor.LIGHT_PURPLE + target.getDisplayName().toString()
-				+ ChatColor.DARK_RED + " ♥");
+	public void messageAll (String playerName) {
+		Bukkit.broadcastMessage (ChatColor.LIGHT_PURPLE + playerName
+			+ ChatColor.RED + " hugged "
+			+ ChatColor.LIGHT_PURPLE + "everyone"
+			+ ChatColor.RED + " ♥");
+
+	}
+
+	@Override
+	public void message (String playerName, Player target) {
+		Bukkit.broadcastMessage (ChatColor.LIGHT_PURPLE + playerName
+			+ ChatColor.RED + " hugged "
+			+ ChatColor.LIGHT_PURPLE + target.getDisplayName ().toString ()
+			+ ChatColor.DARK_RED + " ♥");
 
 	}
 

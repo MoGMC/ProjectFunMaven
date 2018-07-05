@@ -11,25 +11,26 @@ public abstract class BaseCommand implements CommandExecutor {
 
 	private final String COMMAND_NAME;
 
-	public BaseCommand(String commandName) {
+	public BaseCommand (String commandName) {
 		COMMAND_NAME = commandName;
 
 	}
 
-	public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
+	public boolean onCommand (CommandSender sender, Command cmd, String arg2, String[] args) {
 
-			if (!(sender instanceof Player)) {
-				sender.sendMessage("Only a player can use this command.");
-				return false;
+		if (!(sender instanceof Player)) {
+			sender.sendMessage ("Only a player can use this command.");
+			return false;
 
-			}
+		}
 
-			return execute(sender, args);
+		return execute (sender, args);
+
 	}
 
-	public abstract boolean execute(CommandSender sender, String[] args);
+	public abstract boolean execute (CommandSender sender, String[] args);
 
-	public String getName() {
+	public String getName () {
 		return COMMAND_NAME;
 	}
 

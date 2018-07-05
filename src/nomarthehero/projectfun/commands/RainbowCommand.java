@@ -6,26 +6,25 @@ import nomarthehero.projectfun.ProjectFun;
 
 public class RainbowCommand extends BaseCommand {
 
-	public RainbowCommand() {
-		super("rainbow");
+	public RainbowCommand () {
+		super ("rainbow");
 
 	}
 
-	ProjectFun PF = ProjectFun.getPlugin();
+	ProjectFun PF = ProjectFun.getPlugin ();
 
 	@Override
-	public boolean execute(CommandSender sender, String[] args) {
+	public boolean execute (CommandSender sender, String[] args) {
 
-		if (PF.hasRainbow.contains(sender.getName())) {
-			PF.hasRainbow.remove(sender.getName());
-			sender.sendMessage(ChatColor.YELLOW
-					+ "Rainbow mode disabled!");
+		if (PF.hasRainbow.contains (sender.getName ())) {
+			PF.hasRainbow.remove (sender.getName ());
+			sender.sendMessage (ChatColor.YELLOW + "Rainbow mode disabled!");
 			return true;
 
-		} else {
-			PF.hasRainbow.add(sender.getName());
-			sender.sendMessage(ChatColor.YELLOW
-					+ "Rainbow mode enabled!");
+		}
+		else {
+			PF.hasRainbow.add (sender.getName ());
+			sender.sendMessage (ChatColor.YELLOW + "Rainbow mode enabled!");
 			return true;
 
 		}
