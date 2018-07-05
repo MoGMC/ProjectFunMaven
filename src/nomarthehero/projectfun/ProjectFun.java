@@ -51,6 +51,7 @@ public class ProjectFun extends JavaPlugin implements Listener {
 		this.getCommand ("rek").setExecutor (new RektCommand ());
 		this.getCommand ("fun").setExecutor (new FunCommand ());
 		this.getCommand ("hashtag").setExecutor (new HashtagCommand ());
+		this.getCommand ("dab").setExecutor (new DabCommand ());
 
 	}
 
