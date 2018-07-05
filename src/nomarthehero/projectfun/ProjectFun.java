@@ -31,38 +31,27 @@ public class ProjectFun extends JavaPlugin implements Listener {
 		registerAllCommands ();
 
 		getServer ().getPluginManager ().registerEvents (new ChatListener (), this);
-		getServer ().getPluginManager ()
-			.registerEvents (new RainbowEffect (), this);
+		getServer ().getPluginManager ().registerEvents (new RainbowEffect (), this);
 
 		saveDefaultConfig ();
 
 	}
 
-	public void onDisable () {
-
-	}
-
 	public void registerAllCommands () {
 
-		this.getCommand ("slap").setExecutor (new SlapCommand ());
-		this.getCommand ("hug").setExecutor (new HugCommand ());
-		this.getCommand ("lick").setExecutor (new LickCommand ());
-		this.getCommand ("rainbow").setExecutor (new RainbowCommand ());
-		this.getCommand ("rek").setExecutor (new RektCommand ());
-		this.getCommand ("fun").setExecutor (new FunCommand ());
-		this.getCommand ("hashtag").setExecutor (new HashtagCommand ());
-		this.getCommand ("dab").setExecutor (new DabCommand ());
+		getCommand ("slap").setExecutor (new SlapCommand ());
+		getCommand ("hug").setExecutor (new HugCommand ());
+		getCommand ("lick").setExecutor (new LickCommand ());
+		getCommand ("rainbow").setExecutor (new RainbowCommand ());
+		getCommand ("rek").setExecutor (new RektCommand ());
+		getCommand ("fun").setExecutor (new FunCommand ());
+		getCommand ("hashtag").setExecutor (new HashtagCommand ());
+		getCommand ("dab").setExecutor (new DabCommand ());
 
 	}
 
-	public static int getCooldown () {
-		return cooldown;
+	public static int getCooldown () { return cooldown; }
 
-	}
-
-	public static ProjectFun getPlugin () {
-		return plugin;
-
-	}
+	public static ProjectFun getPlugin () { return plugin; }
 
 }
